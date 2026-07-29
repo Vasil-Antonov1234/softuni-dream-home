@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const createPropertiesSchema = z.object({
+export const createPropertySchema = z.object({
     type: z.string()
         .min(4, { error: "Type should be at least 4 characters" }),
     location: z.string()
