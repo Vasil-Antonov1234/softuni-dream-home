@@ -27,6 +27,9 @@ export default {
         return await prisma.property.findUnique({
             where: {
                 id: propertyId
+            },
+            include: {
+                likeBy: true
             }
         });
     },
@@ -48,6 +51,21 @@ export default {
             where: {
                 id: propertyId,
                 ownerId: userId
+            }
+        });
+    },
+
+    async like(propertyId, userId) {
+        return await prisma.property.update({
+            where: {
+                id: propertyId
+            },
+            data: {
+                likeBy: {
+                    connect: {
+                        id: userId
+                    }
+                }
             }
         });
     }

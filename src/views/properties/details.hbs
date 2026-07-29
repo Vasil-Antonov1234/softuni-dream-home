@@ -40,9 +40,11 @@
                 {{#if isOwner}}
                 <a href="/properties/{{property.id}}/edit" id="edit-btn">Edit</a>
                 <a href="/properties/{{property.id}}/delete" id="delete-btn">Delete</a> -->
-                {{/if}}
-                <a href="/properties/{{property.id}}/like" id="like-btn">Like</a>
+                {{else if hasLiked}}
                 <p id="already-liked">You already liked this property!</p>
+                {{else}}
+                <a href="/properties/{{property.id}}/like" id="like-btn">Like</a>
+                {{/if}}
                 {{/if}}
             </div>
         </div>

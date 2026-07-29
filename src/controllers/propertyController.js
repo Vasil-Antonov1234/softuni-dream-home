@@ -47,8 +47,9 @@ propertyController.get("/:propertyId/details", async (req, res) => {
         const property = await propertyService.getById(propertyId);
 
         const isOwner = property.ownerId === userId;
+        const hasLiked = property.likeBy.find((x) => x.id === userId);
 
-        res.status(200).render("properties/details", { property, isOwner });
+        res.status(200).render("properties/details", { property, isOwner, hasLiked });
     } catch (error) {
         const errorMessage = getErrorMessage(error);
         res.status(400).render("404", { error: errorMessage });
@@ -93,6 +94,27 @@ propertyController.get("/:propertyId/delete", isAuthenticated, async (req, res) 
         await propertyService.remove(propertyId, userId);
 
         res.status(204).redirect("/properties/dashboard");
+    } catch (error) {
+        const errorMessage = getErrorMessage(error);
+        res.status(404).render("404", { error: errorMessage });
+    };
+});
+
+propertyController.get("/:propertyId/like", isAuthenticated, async (req, res) => {
+    const propertyId = Number(req.params.propertyId);
+    const userId = Number(req.user.id);
+
+    try {
+        const property = await propertyService.getById(propertyId);
+
+        const isOwner = property.ownerId === userId;
+
+        if (isOwner) {
+            return res.redirect("/", { error: "An owner cannot like their own posts"});
+        };        
+
+        await propertyService.like(propertyId, userId);
+        res.status(200).redirect(`/properties/${propertyId}/details`)
     } catch (error) {
         const errorMessage = getErrorMessage(error);
         res.status(404).render("404", { error: errorMessage });

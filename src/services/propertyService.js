@@ -23,5 +23,9 @@ export default {
 
     async remove(propertyId, userId) {
         return await propertyRepository.remove(propertyId, userId);
+    },
+
+    async like(propertyId, userId) {
+        return await propertyRepository.like(propertyId, userId);
     }
 }
