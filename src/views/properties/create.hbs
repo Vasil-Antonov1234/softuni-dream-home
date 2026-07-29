@@ -4,13 +4,13 @@
         <div class="form">
             <h2>Add Property</h2>
             <form class="create-form" method="POST">
-                <input type="text" id="type" placeholder="Type" name="type" />
-                <input type="text" id="location" placeholder="Location" name="location" />
-                <input type="number" id="area" placeholder="Area" name="area" />
-                <input type="text" id="image-url" placeholder="Image URL" name="image" />
-                <input type="number" id="price" placeholder="Price" name="price" />
-                <input type="number" id="contact" placeholder="For Contacts..." name="contact" />
-                <textarea id="description" placeholder="Description..." name="description"></textarea>
+                <input type="text" id="type" placeholder="Type" name="type" value="{{data.type}}" />
+                <input type="text" id="location" placeholder="Location" name="location" value="{{data.location}}" />
+                <input type="number" id="area" placeholder="Area" name="area" value="{{data.area}}" />
+                <input type="text" id="image-url" placeholder="Image URL" name="image" value="{{data.image}}" />
+                <input type="number" id="price" placeholder="Price" name="price" value="{{data.price}}" />
+                <input type="number" id="contact" placeholder="For Contacts..." name="contact" value="{{data.contact}}" />
+                <textarea id="description" placeholder="Description..." name="description">{{data.description}}</textarea>
                 <button type="submit">Create</button>
             </form>
 

@@ -15,7 +15,9 @@ export function getErrorMessage(error) {
             case "P2003":
                 message = "Foreign key constraint failed";
                 break;
-            default: message = "Database error";
+            default: 
+            console.log(error.code)
+            message = "Database error";
         }
     } else {
         message = error.message || "Something went wrong!";

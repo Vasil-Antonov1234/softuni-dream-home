@@ -29,7 +29,7 @@ model Property {
 	area		Int
 	image		String
 	price		Int
-	contact		Int
+	contact		BigInt
 	description	String
 
 	ownerId		Int
