@@ -50,6 +50,10 @@ propertyController.get("/:propertyId/details", async (req, res) => {
         const errorMessage = getErrorMessage(error);
         res.status(400).render("404", { error: errorMessage });
     };
+});
+
+propertyController.get("/:propertyId/edit", async (req, res) => {
+    res.render("properties/edit")
 })
 
 export default propertyController;
