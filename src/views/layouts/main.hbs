@@ -10,11 +10,13 @@
 </head>
 
 <body>
-    <!-- <div>
+    {{#if error}}
+    <div>
         <div class="errorContainer">
-            <p>Error</p>
+            <p>{{error}}</p>
         </div>
-    </div> -->
+    </div>
+    {{/if}}
 
     <div id="wrapper">
         <header>
@@ -29,7 +31,7 @@
                 <!-- Logged-in users -->
                 <div class="user">
                     <a href="#">Add Property</a>
-                    <a href="#">Logout</a>
+                    <a href="/auth/logout">Logout</a>
                 </div>
 
                 <!-- Guest users -->
