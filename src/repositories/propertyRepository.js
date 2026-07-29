@@ -29,5 +29,17 @@ export default {
                 id: propertyId
             }
         });
+    },
+
+    async update(parsedPropertyData, propertyId, userId) {
+        return await prisma.property.update({
+            where: {
+                id: propertyId,
+                ownerId: userId
+            },
+            data: {
+                ...parsedPropertyData
+            }
+        })
     }
 }

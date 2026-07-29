@@ -15,5 +15,9 @@ export default {
 
     async getById(propertyId) {
         return await propertyRepository.getById(propertyId);
+    },
+
+    async update(parsedPropertyData, propertyId, userId) {
+        return await propertyRepository.update(parsedPropertyData, propertyId, userId);
     }
 }

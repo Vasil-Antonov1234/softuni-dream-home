@@ -64,6 +64,23 @@ propertyController.get("/:propertyId/edit", isAuthenticated, async (req, res) =>
         const errorMessage = getErrorMessage(error);
         res.status(400).render("404", { error: errorMessage });
     };
+});
+
+propertyController.post("/:propertyId/edit", isAuthenticated, async (req, res) => {
+    const propertyData = req.body
+    const propertyId = Number(req.params.propertyId);
+    const userId = Number(req.user.id);
+
+    try {
+        const parsedPropertyData = await createPropertySchema.parseAsync(propertyData);
+        const property = await propertyService.update(parsedPropertyData, propertyId, userId);
+
+        res.status(200).redirect(`/properties/${propertyId}/details`);
+    } catch (error) {
+        const errorMessage = getErrorMessage(error);
+        res.status(400).render(`properties/edit`, { property: propertyData, error: errorMessage });
+    };
+
 })
 
 export default propertyController;
