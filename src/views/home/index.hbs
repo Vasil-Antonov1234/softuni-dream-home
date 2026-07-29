@@ -8,32 +8,19 @@
 
 
         <section id="last-added">
+            
+            {{#each properties}}
             <div>
-                <img src="/images/house.jpg">
+                <img src="{{image}}">
                 <div id="text-content">
-                    <p>Type: House</p>
-                    <p>Area: 499 sq.m</p>
+                    <p>Type: {{type}}</p>
+                    <p>Area: {{area}} sq.m</p>
                 </div>
                 <a class="details-btn" href="#">Details</a>
             </div>
-            <div>
-                <img src="/images/apartment.jpg">
-                <div id="text-content">
-                    <p>Type: Apartment</p>
-                    <p>Area: 102 sq.m</p>
-                </div>
-                <a class="details-btn" href="#">Details</a>
-            </div>
-            <div>
-                <img src="/images/store.jpg">
-                <div id="text-content">
-                    <p>Type: Store</p>
-                    <p>Area: 300 sq.m</p>
-                </div>
-                <a class="details-btn" href="#">Details</a>
-            </div>
-
-            <!-- <p class="no-post">There are no properties yet!</p> -->
+            {{else}}
+            <p class="no-post">There are no properties yet!</p>
+            {{/each}}
         </section>
     </section>
 </main>

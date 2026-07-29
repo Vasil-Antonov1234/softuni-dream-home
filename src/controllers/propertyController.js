@@ -23,10 +23,8 @@ propertyController.post("/create", isAuthenticated, async (req, res) => {
         res.status(200).redirect("/");
     } catch (error) {
         const errorMessage = getErrorMessage(error);
-
-        console.log(errorMessage)
         res.status(400).render("properties/create", { error: errorMessage, data });
     };
-})
+});
 
 export default propertyController;
