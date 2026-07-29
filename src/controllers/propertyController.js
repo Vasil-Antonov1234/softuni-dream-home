@@ -41,11 +41,14 @@ propertyController.get("/dashboard", async (req, res) => {
 
 propertyController.get("/:propertyId/details", async (req, res) => {
     const propertyId = Number(req.params.propertyId);
+    const userId = req.user?.id;
     
     try {
         const property = await propertyService.getById(propertyId);
 
-        res.status(200).render("properties/details", { property });
+        const isOwner = property.ownerId === userId;
+
+        res.status(200).render("properties/details", { property, isOwner });
     } catch (error) {
         const errorMessage = getErrorMessage(error);
         res.status(400).render("404", { error: errorMessage });
