@@ -17,8 +17,8 @@ propertyController.post("/create", isAuthenticated, async (req, res) => {
 
     try {
         const parsedData = await createPropertySchema.parseAsync(data);
-        
-        const property = await propertyService.createOne(parsedData, userId);
+
+        await propertyService.createOne(parsedData, userId);
 
         res.status(200).redirect("/");
     } catch (error) {
@@ -28,7 +28,15 @@ propertyController.post("/create", isAuthenticated, async (req, res) => {
 });
 
 propertyController.get("/dashboard", async (req, res) => {
-    res.render("properties/dashboard");
+
+    try {
+        const properties = await propertyService.getAll();
+
+        res.render("properties/dashboard", { properties });
+    } catch (error) {
+        const errorMessage = getErrorMessage(error);
+        res.status(400).render("properties/dashboard", { error: errorMessage });
+    };
 });
 
 export default propertyController;

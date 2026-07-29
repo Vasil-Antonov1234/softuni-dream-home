@@ -17,5 +17,9 @@ export default {
             },
             take: 3
         });
+    },
+
+    async getAll() {
+        return await prisma.property.findMany();
     }
 }

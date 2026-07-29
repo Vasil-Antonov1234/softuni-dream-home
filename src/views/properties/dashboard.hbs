@@ -3,52 +3,27 @@
         <h2>Properties</h2>
         <ul class="property-wrapper">
             <!-- Display a li with information about every post (if any)-->
+            {{#each properties}}
             <li class="property">
-                <img src="./static/images/house.jpg" />
+                <img src="{{image}}" />
                 <p>
-                    <strong>Type: </strong><span class="type">House</span>
+                    <strong>Type: </strong><span class="type">{{type}}</span>
                 </p>
                 <p>
-                    <strong>Area </strong><span class="area">499 sq.m</span>
+                    <strong>Area </strong><span class="area">{{area}} sq.m</span>
                 </p>
                 <p>
-                    <strong>Location: </strong><span class="location">Plovdiv</span>
+                    <strong>Location: </strong><span class="location">{{location}}</span>
                 </p>
                 <a class="details-btn" href="#">Details</a>
             </li>
-
-            <li class="property">
-                <img src="./static/images//apartment.jpg" />
-                <p>
-                    <strong>Type: </strong><span class="type">Apartment</span>
-                </p>
-                <p>
-                    <strong>Area </strong><span class="area">102 sq.m</span>
-                </p>
-                <p>
-                    <strong>Location: </strong><span class="location">Sofia</span>
-                </p>
-                <a class="details-btn" href="#">Details</a>
-            </li>
-
-            <li class="property">
-                <img src="./static/images/store.jpg" />
-                <p>
-                    <strong>Type: </strong><span class="type">Store</span>
-                </p>
-                <p>
-                    <strong>Area </strong><span class="area">300 sq.m</span>
-                </p>
-                <p>
-                    <strong>Location: </strong><span class="location">Sofia</span>
-                </p>
-                <a class="details-btn" href="#">Details</a>
-            </li>
+            {{else}}
+            <!-- Display an h2 if there are no posts -->
+            <div id="no-post">
+                <h2>There are no properties yet! </h2>
+            </div>
+            {{/each}}
         </ul>
 
-        <!-- Display an h2 if there are no posts -->
-        <!-- <div id="no-post">
-                    <h2>There are no properties yet! </h2>
-                    </div> -->
     </section>
 </main>

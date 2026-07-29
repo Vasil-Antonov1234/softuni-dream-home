@@ -7,5 +7,9 @@ export default {
 
     async getLatest() {
         return propertyRepository.getLatest();
+    },
+
+    async getAll() {
+        return await propertyRepository.getAll();
     }
 }
