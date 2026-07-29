@@ -16,10 +16,26 @@ model User {
 	id  		Int			@id 	@default(autoincrement())
 	email		String	@unique
 	password	String
+
+	properties	Property[]
 	
 	@@map("users")
 }
 
 model Property {
-	
+	id  		Int			@id 	@default(autoincrement())
+	type		String
+	location	String
+	area		Int
+	image		String
+	price		Int
+	contact		Int
+	description	String
+
+	ownerId		Int
+	owner	User	@relation(fields: [ownerId], references: [id])
+
+	createdAt   DateTime	@default(now())
+    updatedAt   DateTime	@updatedAt
+	@@map("properties")
 }
