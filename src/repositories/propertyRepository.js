@@ -21,5 +21,13 @@ export default {
 
     async getAll() {
         return await prisma.property.findMany();
+    },
+
+    async getById(propertyId) {
+        return await prisma.property.findUnique({
+            where: {
+                id: propertyId
+            }
+        });
     }
 }

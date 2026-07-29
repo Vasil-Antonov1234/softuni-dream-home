@@ -1,0 +1,46 @@
+<main class="details">
+    <!-- Details page -->
+    <section id="details">
+        <div id="details-wrapper">
+            <p id="details-title">House</p>
+            <div id="img-wrapper">
+                <img src="{{property.image}}" alt="Photo of the house in {{property.location}}" />
+            </div>
+            <div id="info-wrapper">
+                <table>
+
+                    <tr>
+                        <td>
+                            <p>
+                                Contact: <a id="details-contact">{{property.contact}}</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p>Location: <span id="details-location">{{property.location}}</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Area: <span id="details-area">{{property.area}} sq.m</span></p>
+                        </td>
+                        <td>
+                            <p>Price: <span id="details-price">{{property.price}} EUR</span></p>
+                        </td>
+                    </tr>
+                </table>
+                <p>Description:
+                    <span id="details-description">
+                        {{property.description}}
+                    </span>
+                </p>
+            </div>
+
+            <div id="action-buttons">
+                <a href="/edit/house_id_123" id="edit-btn">Edit</a>
+                <a href="/delete/house_id_123" id="delete-btn">Delete</a> -->
+                <a href="#" id="like-btn">Like</a>
+                <p id="already-liked">You already liked this property!</p>
+            </div>
+        </div>
+    </section>
+</main>

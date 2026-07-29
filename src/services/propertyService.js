@@ -11,5 +11,9 @@ export default {
 
     async getAll() {
         return await propertyRepository.getAll();
+    },
+
+    async getById(propertyId) {
+        return await propertyRepository.getById(propertyId);
     }
 }

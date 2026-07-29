@@ -39,4 +39,17 @@ propertyController.get("/dashboard", async (req, res) => {
     };
 });
 
+propertyController.get("/:propertyId/details", async (req, res) => {
+    const propertyId = Number(req.params.propertyId);
+    
+    try {
+        const property = await propertyService.getById(propertyId);
+
+        res.status(200).render("properties/details", { property });
+    } catch (error) {
+        const errorMessage = getErrorMessage(error);
+        res.status(400).render("404", { error: errorMessage });
+    };
+})
+
 export default propertyController;

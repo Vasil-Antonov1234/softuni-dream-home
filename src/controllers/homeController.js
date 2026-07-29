@@ -8,8 +8,6 @@ homeController.get("/", async (req, res) => {
     
     try {
         const properties = await propertyService.getLatest()
-
-        console.log(properties)
     
         res.render("home", { properties });
     } catch (error) {
