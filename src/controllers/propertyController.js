@@ -7,7 +7,33 @@ import { isAuthenticated } from "../middlewares/authMiddleware.js";
 const propertyController = Router();
 
 propertyController.get("/report", async (req, res) => {
-    res.render("properties/report");
+    
+    try {
+        const latest = await propertyService.getLatest();
+
+        latest.map((x) => {
+            const date = new Date(x.createdAt)
+            let day = date.getDay();
+            let mounth = date.getMonth();
+            const year = date.getFullYear();
+
+            if (day < 10) {
+                day = `0${day}`;
+            };
+
+            if (mounth < 10) {
+                mounth = `0${mounth}`;
+            };
+
+            const fullDate = `${day}/${mounth}/${year}`;
+
+            x.createdAt = fullDate;
+        });
+
+        res.status(200).render("properties/report", { latest });
+    } catch (error) {
+        res.status(400).render("properties/report", { errorMesage: "Error loading report!" });
+    };
 });
 
 propertyController.get("/create", (req, res) => {

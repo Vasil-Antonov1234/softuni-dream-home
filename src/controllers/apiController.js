@@ -4,7 +4,7 @@ import propertyService from "../services/propertyService.js";
 const apiController = Router();
 
 apiController.get("/report/properties/latest", async (req, res) => {
-    const latestProperties = await propertyService.getLatest();
+    const latestProperties = await propertyService.getReport();
 
     latestProperties.map((x) => x.contact = String(x.contact));
 

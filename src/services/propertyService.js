@@ -9,6 +9,10 @@ export default {
         return propertyRepository.getLatest();
     },
 
+    async getReport() {
+        return await propertyRepository.getReport();
+    },
+
     async getAll() {
         return await propertyRepository.getAll();
     },
