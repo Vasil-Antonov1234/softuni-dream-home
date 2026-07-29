@@ -1,64 +1,95 @@
-.report-section{padding-bottom:80px}
 
-#report-section{padding:40px 48px 0}
-#report-section>h2{
-  font-size:36px;font-weight:700;color:var(--cream);text-transform:uppercase;
-  margin-bottom:8px;letter-spacing:1px;
-  display:flex;align-items:center;gap:14px;
-}
-#report-section>h2::before{
-  content:'';display:inline-block;width:5px;height:36px;
-  background:linear-gradient(180deg,var(--gold),var(--green-bright));
-  border-radius:3px;flex-shrink:0;
+#report-section {
+  margin-top: -50px;
+  display: block;
 }
 
-#report-section>p{
-  color:var(--text-muted);font-size:13px;margin-bottom:28px;
-  padding-left:20px;
+h2 {
+  text-align: center;
+  font-size: 40px;
+  color: white;
 }
 
-.report-list{list-style:none;padding:24px 48px;display:flex;flex-direction:column;gap:20px}
-
-.report-card{
-  display:grid;grid-template-columns:180px 1fr;
-  align-items:stretch;
-  background:rgba(8,20,8,0.82);border:1px solid var(--glass-border);
-  border-radius:var(--radius);backdrop-filter:blur(18px);
-  overflow:hidden;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;
-  position:relative;
-}
-.report-card::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(180deg,var(--gold),var(--green-bright));
-  opacity:0;transition:opacity 0.25s;
-}
-.report-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.45),0 0 24px rgba(255,215,0,0.06);border-color:rgba(255,215,0,0.22)}
-.report-card:hover::before{opacity:1}
-
-.report-card img{width:180px;min-height:140px;object-fit:cover;display:block;transition:transform 0.35s}
-.report-card:hover img{transform:scale(1.05)}
-
-/* All non-image children */
-.report-card>:not(img){
-  padding:20px 26px;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-  gap:0;align-items:start;
+.report-property img {
+  height: 42vh;
+  object-fit: cover;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
-.report-card h3{
-  font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;
-  color:var(--cream);grid-column:1/-1;margin-bottom:10px;
-  text-transform:uppercase;letter-spacing:0.5px;
+.report-list {
+  list-style-type: none;
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
-/* Score in report */
-.report-card .match-score{
-  grid-column:1/-1;margin-bottom:12px;
-  font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;
-  color:var(--gold);letter-spacing:3px;
+.report-section h2 {
+ color: wheat;
+ text-shadow: 2px 2px black;
 }
 
-.report-card p{font-size:13px;color:var(--text-dim);line-height:1.5;text-align:left;padding:0 8px}
-.report-card p strong{display:block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:4px}
+.title,
+.salary {
+  font-size: 21px;
+}
 
-#no-post{text-align:center;padding:80px 20px;font-family:'Roboto',sans-serif;font-size:18px;color:var(--text-muted)}
+.report-property {
+  display: flex;
+align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  width: 50vw;
+  height: 75vh;
+  margin: 25px auto;
+  margin-bottom: 120px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid rgba(169, 152, 198, 0.781);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.682), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.report-property div{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+.report-property h3{
+  font-size: 40px;
+}
+
+.details-btn {
+  text-decoration: none;
+  margin: auto 50px;
+  font-size: 21px;
+  width: 130px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+background-image: linear-gradient(45deg, #5dddee, #0080f8);
+border-radius: 10px;
+text-shadow: 1px 1px black;
+}
+
+.report-property p {
+  min-width: 90% !important;
+  font-size: 21px;
+  max-height: 50px;
+  max-width: 30%;
+  text-align: center;
+  margin: 9px;
+}
+
+.property span {
+  padding: 10px;
+  margin: auto;
+}
+
+#no-post h2 {
+  margin-top: 100px;
+  color: wheat;
+  font-size: 70px;
+}
