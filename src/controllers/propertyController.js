@@ -52,8 +52,18 @@ propertyController.get("/:propertyId/details", async (req, res) => {
     };
 });
 
-propertyController.get("/:propertyId/edit", async (req, res) => {
-    res.render("properties/edit")
+propertyController.get("/:propertyId/edit", isAuthenticated, async (req, res) => {
+    const propertyId = Number(req.params.propertyId);
+    const userId = Number(req.user.id);
+
+    try {
+        const property = await propertyService.getById(propertyId);
+
+        res.status(200).render("properties/edit", { property })
+    } catch (error) {
+        const errorMessage = getErrorMessage(error);
+        res.status(400).render("404", { error: errorMessage });
+    };
 })
 
 export default propertyController;
