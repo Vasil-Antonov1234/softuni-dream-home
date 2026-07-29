@@ -36,12 +36,14 @@
             </div>
 
             <div id="action-buttons">
+                {{#if user}}
                 {{#if isOwner}}
                 <a href="/properties/{{property.id}}/edit" id="edit-btn">Edit</a>
                 <a href="/properties/{{property.id}}/delete" id="delete-btn">Delete</a> -->
                 {{/if}}
                 <a href="/properties/{{property.id}}/like" id="like-btn">Like</a>
                 <p id="already-liked">You already liked this property!</p>
+                {{/if}}
             </div>
         </div>
     </section>
