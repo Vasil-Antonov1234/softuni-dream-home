@@ -27,4 +27,8 @@ propertyController.post("/create", isAuthenticated, async (req, res) => {
     };
 });
 
+propertyController.get("/dashboard", async (req, res) => {
+    res.render("properties/dashboard");
+});
+
 export default propertyController;

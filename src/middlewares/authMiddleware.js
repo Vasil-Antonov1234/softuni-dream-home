@@ -32,7 +32,7 @@ export function isAuthenticated(req, res, next) {
 
 export function isGuest(req, res, next) {
 
-    if(res.user) {
+    if(req.user) {
         return res.redirect("/");
     };
 
