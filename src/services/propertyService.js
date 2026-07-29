@@ -19,5 +19,9 @@ export default {
 
     async update(parsedPropertyData, propertyId, userId) {
         return await propertyRepository.update(parsedPropertyData, propertyId, userId);
+    },
+
+    async remove(propertyId, userId) {
+        return await propertyRepository.remove(propertyId, userId);
     }
 }

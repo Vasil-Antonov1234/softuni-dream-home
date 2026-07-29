@@ -41,5 +41,14 @@ export default {
                 ...parsedPropertyData
             }
         })
+    },
+
+    async remove(propertyId, userId) {
+        return await prisma.property.delete({
+            where: {
+                id: propertyId,
+                ownerId: userId
+            }
+        });
     }
 }
