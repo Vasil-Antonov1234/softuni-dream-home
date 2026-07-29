@@ -12,6 +12,20 @@ export default {
 
     async getLatest() {
         return await prisma.property.findMany({
+            select: {
+                type: true,
+                contact: true,
+                location: true,
+                area: true,
+                price: true,
+                description: true,
+                owner: {
+                    select: {
+                        email: true
+                    }
+                },
+                createdAt: true,
+            },
             orderBy: {
                 createdAt: "desc"
             },

@@ -6,9 +6,13 @@ import { isAuthenticated } from "../middlewares/authMiddleware.js";
 
 const propertyController = Router();
 
+propertyController.get("/report", async (req, res) => {
+    res.render("properties/report");
+});
+
 propertyController.get("/create", (req, res) => {
     res.render("properties/create");
-})
+});
 
 propertyController.post("/create", isAuthenticated, async (req, res) => {
     const data = req.body;
@@ -119,6 +123,6 @@ propertyController.get("/:propertyId/like", isAuthenticated, async (req, res) =>
         const errorMessage = getErrorMessage(error);
         res.status(404).render("404", { error: errorMessage });
     };
-})
+});
 
 export default propertyController;
