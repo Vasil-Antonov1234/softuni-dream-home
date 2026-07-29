@@ -1,14 +1,15 @@
 <main class="register">
-  <section id="register">
-    <div class="form">
-      <h2>⚽ Register</h2>
-      <form class="register-form" method="POST">
-        <input type="text" id="email" name="email" placeholder="Email" value="{{userData.email}}" />
-        <input type="password" id="password" name="password" placeholder="Password" />
-        <input type="password" id="repeat-password" name="rePassword" placeholder="Repeat Password" />
-        <button type="submit">Register</button>
-        <p class="message">Already have an account? <a href="/auth/login">Login</a></p>
-      </form>
-    </div>
-  </section>
+    <!-- Register Page (Only for Guest users) -->
+    <section id="register">
+        <div class="form">
+            <h2>Register</h2>
+            <form class="login-form" method="" action="#">
+                <input type="text" name="" id="register-email" placeholder="email" />
+                <input type="password" name="" id="register-password" placeholder="password" />
+                <input type="password" name="" id="repeat-password" placeholder="repeat password" />
+                <button type="submit">Register</button>
+                <p class="message">Already registered? <a href="/auth/login">Login</a></p>
+            </form>
+        </div>
+    </section>
 </main>
